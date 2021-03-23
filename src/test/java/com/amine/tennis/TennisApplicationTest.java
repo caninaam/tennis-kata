@@ -108,4 +108,17 @@ public class TennisApplicationTest {
 		assertThrows(GameFinichedException.class, () -> garos.winPoint(PlayerType.VISITOR));
 
 	}
+	@Test
+	void local_simple_win_test2() throws GameFinichedException {
+
+		garos.winPoint(PlayerType.VISITOR);
+		garos.winPoint(PlayerType.LOCAL);
+		garos.winPoint(PlayerType.LOCAL);
+		garos.winPoint(PlayerType.VISITOR);
+		garos.winPoint(PlayerType.VISITOR);
+		garos.winPoint(PlayerType.LOCAL);;
+		garos.winPoint(PlayerType.LOCAL);;
+		System.out.println(" local_simple_win_test() ");
+		System.out.println(garos);
+	}
 }

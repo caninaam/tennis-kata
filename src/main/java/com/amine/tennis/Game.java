@@ -53,6 +53,11 @@ public class Game implements IGame {
 		visitor.setScore(0);
 		gameNumber = 0;
 		result = new GameResultContainer();
+		gameFinished=false;
+		isDeuce=false;
+		winner=null;
+		p1.setStateDeuce(DeuceStateMachine.EQUALITY);
+		p2.setStateDeuce(DeuceStateMachine.EQUALITY);
 	}
 
 	@Override
@@ -136,7 +141,7 @@ public class Game implements IGame {
 
 		String rend = at.render();
 
-		return rend;
+		return System.lineSeparator()+rend;
 	}
 
 	public static void main(String[] rr) {

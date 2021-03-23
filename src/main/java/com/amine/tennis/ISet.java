@@ -3,6 +3,7 @@ package com.amine.tennis;
 
 import java.util.List;
 
+import com.amine.tennis.enums.PlayerType;
 import com.amine.tennis.enums.StatusSet;
 import com.amine.tennis.utils.GameFinichedException;
 import com.amine.tennis.utils.SetFinichedException;
@@ -32,7 +33,16 @@ public interface ISet {
 	 * @throws SetFinichedException If we try add point for finished Game.
 	 */
 	public StatusSet  addGame(Game game) throws SetFinichedException;
+	
+	/**
+	 * add point when tie break.
+	 * s
+	 * 
+	 * @param WinnerOfTie	WinnerOfTie.
+	 * @return status of game if it's finish or not yet
 
+	 */
+	public StatusSet addPointForTieBreak(PlayerType WinnerOfTie);
 
 
 }
