@@ -79,8 +79,8 @@ public class Game implements IGame {
 		}
 
 		if (!isDeuce) {
-			logger.info("score p1 " + local.getName() + " : " + ScoreEnumMap.get(local.getScore()) + "---"
-					+ ScoreEnumMap.get(visitor.getScore()) + " plalyer 2 " + visitor.getName());
+			logger.info("Score " + local.getName() + " : " + ScoreEnumMap.get(local.getScore()) + "----"
+					+ ScoreEnumMap.get(visitor.getScore()) + "  " + visitor.getName());
 			result.addGameResult(++gameNumber, ScoreEnumMap.get(local.getScore()).toString(),
 					ScoreEnumMap.get(visitor.getScore()).toString());
 		
