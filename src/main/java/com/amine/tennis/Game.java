@@ -114,11 +114,11 @@ public class Game implements IGame {
 			}
 		} else {
 
-			if (local.getStateDeuce() == DeuceStateMachine.WIN) {
+			if (local.getStateDeuce().equals( DeuceStateMachine.WIN)) {
 				winner=PlayerType.LOCAL;
 				gameFinished = true;
 				return StatusGame.P1_WON;
-			} else if (visitor.getStateDeuce() == DeuceStateMachine.WIN) {
+			} else if (visitor.getStateDeuce().equals( DeuceStateMachine.WIN)) {
 				winner=PlayerType.VISITOR;
 				gameFinished = true;
 				return StatusGame.P2_WON;
@@ -126,7 +126,12 @@ public class Game implements IGame {
 		}
 		return StatusGame.PLAYING;
 	}
-
+	/**
+	 * <p>
+	 * Draw a grid of result for log purpose.
+	 * </p>
+	 * @return  String.
+	 */
 	@Override
 	public String toString() {
 		AsciiTable at = new AsciiTable();
@@ -144,8 +149,6 @@ public class Game implements IGame {
 		return System.lineSeparator()+rend;
 	}
 
-	public static void main(String[] rr) {
-		System.out.println(new Game());
-	}
+
 
 }

@@ -36,10 +36,14 @@ public class Set implements ISet {
 		setNumber = 0;
 		localTieScore = 0;
 		visitorTieScore = 0;
-		resultTie= new SetResultContainer();
+		resultTie = new SetResultContainer();
 
 	}
 
+	/**
+	 * {@inheritdoc}
+	 * 
+	 */
 	@Override
 	public void startSet(Player p1, Player p2) {
 		gamesSet.clear();
@@ -50,6 +54,9 @@ public class Set implements ISet {
 		visitorTieScore = 0;
 	}
 
+	/**
+	 * {@inheritdoc} .
+	 */
 	@Override
 	public StatusSet addGame(Game game) throws SetFinichedException {
 		if (winner == null && game.gameFinished) {
@@ -70,8 +77,14 @@ public class Set implements ISet {
 
 	}
 
+	/**
+	 * <p>
+	 * methode that compute the score of set after each Game or tie break point.
+	 * </p>
+	 * @return StatusSet determine the winner or if the set is playin.
+	 */
 	private StatusSet judge() {
-		//tie brek 	rule
+		// tie brek rule
 		if (tieBreak) {
 			resultTie.addSetResult(0, localTieScore + "", visitorTieScore + "");
 			if (localTieScore > 6 && localTieScore - visitorTieScore >= 2) {
@@ -103,7 +116,12 @@ public class Set implements ISet {
 		}
 		return StatusSet.PLAYING;
 	}
-
+	/**
+	 * <p>
+	 * Draw a grid of result for log purpose.
+	 * </p>
+	 * @return  String.
+	 */
 	@Override
 	public String toString() {
 		AsciiTable at = new AsciiTable();
@@ -127,7 +145,8 @@ public class Set implements ISet {
 		at.addRow(resultTie.getP2result());
 		at.addRule();
 
-		 rend =System.lineSeparator()+rend+System.lineSeparator()+((isTieBreak())?"tie break"+ at.render():"");
+		rend = System.lineSeparator() + rend + System.lineSeparator()
+				+ ((isTieBreak()) ? "tie break" + at.render() : "");
 
 		return rend;
 	}
@@ -135,5 +154,5 @@ public class Set implements ISet {
 	public boolean isTieBreak() {
 		return tieBreak;
 	}
-	
+
 }
